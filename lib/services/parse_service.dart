@@ -24,13 +24,10 @@ class ParseService {
   }
 
   static Future<void> subscribeUser(String name, String adminId) async {
-    final ParseObject object = ParseObject('Subscribers');
-    final response = await object.create();
-    if (response.success && response.count > 0) {
-      final ParseObject record = response.results[0];
-      record.set('name', name);
-      record.set('adminId', adminId);
-      await record.save();
-    }
+    final ParseObject object = ParseObject('Subscribers')
+      ..set<String>('name', name)
+      ..set<String>('adminId', adminId);
+    final response = await object.save();
+    if (response.success) print('$name subscribed successfully');
   }
 }

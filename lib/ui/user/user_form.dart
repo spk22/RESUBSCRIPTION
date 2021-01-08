@@ -32,11 +32,11 @@ class _UserFormState extends State<UserForm> {
                     value.isEmpty ? 'You can\'t keep name field empty' : null,
               ),
               RaisedButton(
-                child: Text('Subscriber'),
+                child: Text('Subscribe'),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
                     //TODO: hardcode the admin objectId (from backend) here please
-                    await ParseService.subscribeUser(_name, 'dQUBTfm62o');
+                    await ParseService.subscribeUser(_name, 'cdn7IwC265');
                   }
                 },
               ),
